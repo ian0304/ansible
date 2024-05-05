@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get Device
+      cisco.meraki.devices_info:
+        meraki_suppress_logging: true
+        organizationId: 549236
+      register: result
+
+    - name: Show result
+      ansible.builtin.debug:
+        msg: "{{ result }}"

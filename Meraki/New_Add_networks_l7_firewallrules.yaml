@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get networks _appliance _firewall l7firewallrules
+      cisco.meraki.networks_appliance_firewall_l7_firewall_rules_info:
+        networkId: L_699746792102694137
+      register: l7firewallrules
+
+    - name: Set Template variable from JSON response
+      set_fact:
+        template_meraki_rules: "{{ l7firewallrules.meraki_response.rules }}"
+
+    - name: Show Template l7firewallrules
+      ansible.builtin.debug:
+        msg: "{{ template_meraki_rules }}"
+
+
+    - name: Update networks appliance firewall l7firewallrules
+      cisco.meraki.networks_appliance_firewall_l7_firewall_rules:
+        networkId: L_699746792102694138
+        state: present
+        rules:
+         "{{ template_meraki_rules }}"

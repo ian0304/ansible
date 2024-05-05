@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get all networks
+      cisco.meraki.networks_info:
+        organizationId: 1563867
+      register: all_networks
+
+    - name: Show all networks
+      ansible.builtin.debug:
+        msg: "{{ all_networks }}"
+
+    - name: Filter networks ID
+      set_fact:
+       Networkid_list: "{{ all_networks | json_query('meraki_response[*].id') | list }}"
+
+    - name: Show all networks list
+      ansible.builtin.debug:
+        var: Networkid_list
