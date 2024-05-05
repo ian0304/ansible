@@ -140,6 +140,3 @@ dmypy.json
 
 #python notebook
 *.ipynb
-
-.venv
-.vscode
