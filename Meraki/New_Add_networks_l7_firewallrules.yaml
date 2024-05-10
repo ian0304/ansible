@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Adding networks l7 firewall rules
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: Get networks _appliance _firewall l7firewallrules
@@ -21,4 +22,4 @@
         networkId: L_699746792102694138
         state: present
         rules:
-         "{{ template_meraki_rules }}"
+          "{{ template_meraki_rules }}"

@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Update firewall l7 rules for sites with office task_get_networks.yaml
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: Get Network ID
@@ -7,4 +8,4 @@
 
     - name: Update l7 Firewall Rules
       include_tasks: task_update_networks_l7_firewallrules.yaml
-      loop: "{{ Networkid_list }}"
+      loop: "{{ Networkidlist }}"

@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Get networks
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: Get all networks
@@ -11,11 +12,10 @@
       ansible.builtin.debug:
         msg: "{{ all_networks }}"
 
-    - name: Filter networks ID
+    - name: Filtering networks ID
       set_fact:
-       Networkid_list: "{{ all_networks | json_query('meraki_response[*].id') | list }}"
-        
-    
-    - name: Show all networks I
+        Networkidlist: "{{ all_networks | json_query('meraki_response[*].id') | list }}"
+
+    - name: Show all networks
       ansible.builtin.debug:
-        var: Networkid_list
+        var: Networkidlist

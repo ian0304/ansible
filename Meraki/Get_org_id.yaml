@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Get Organizations ID
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: Get all Organizations

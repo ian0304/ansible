@@ -24,7 +24,7 @@
     networkId: "{{ item }}"
     state: present
     rules:
-     "{{ merge_meraki_rules }}"
+      "{{ merge_meraki_rules }}"
 
 - name: Get "{{ item }}" l7firewallrules
   cisco.meraki.networks_appliance_firewall_l7_firewall_rules_info:
