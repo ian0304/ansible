@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Who Am I
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: Get my administered identities
@@ -9,3 +10,4 @@
     - name: Show result
       ansible.builtin.debug:
         msg: "{{ result }}"
+        
