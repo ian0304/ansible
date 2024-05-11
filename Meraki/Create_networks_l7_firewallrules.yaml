@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Create network l7 firewall rules
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: Update networks appliance firewall l7firewallrules

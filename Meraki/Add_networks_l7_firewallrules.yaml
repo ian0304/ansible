@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: Add network l7 firewall rules
+  hosts: localhost
   gather_facts: false
   tasks:
     - name: Get all networks
