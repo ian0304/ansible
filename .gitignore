@@ -1,3 +1,4 @@
 .vscode/settings.json
 venv
 .gitignore
+ansible-navigator.log
