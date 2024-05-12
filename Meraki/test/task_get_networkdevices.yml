@@ -1,0 +1,14 @@
+- name: Get all devices
+  cisco.meraki.devices_info:
+    organizationId: "{{ org_id }}"
+    networkIds: "{{ Networkidlist }}"
+    productTypes: ['wireless', 'switch']
+  register: result
+
+- name: Set networkdevices list
+  set_fact:
+    networkdevices: "{{ result.meraki_response }}"
+
+- name: Show all devices info
+  ansible.builtin.debug:
+    msg: "{{ networkdevices }}"

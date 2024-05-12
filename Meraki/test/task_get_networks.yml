@@ -1,0 +1,14 @@
+- name: Get all networks
+  cisco.meraki.networks_info:
+    organizationId: "{{ org_id }}"
+    tags: [Office]
+    tagsFilterType: withAllTags
+  register: office_networks_id
+
+- name: Show all networks
+  ansible.builtin.debug:
+    msg: "{{ office_networks_id }}"
+
+- name: Filter networks ID
+  set_fact:
+    Networkidlist: "{{ office_networks_id.meraki_response | map(attribute='id') | list }}"

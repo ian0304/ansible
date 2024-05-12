@@ -1,0 +1,7 @@
+- name: Get AP and Switch SN
+  set_fact:
+    devicesnlist: "{{ networkdevices | map(attribute='serial') | list}}"
+
+- name: Show devicesn
+  ansible.builtin.debug:
+   msg: "{{ devicesnlist }}"

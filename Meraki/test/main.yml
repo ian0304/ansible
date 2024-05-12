@@ -1,0 +1,24 @@
+---
+- name: Update mgmt interface DNS for SW and AP
+  hosts: localhost
+  gather_facts: false
+  vars:
+    org_id: "1563867"
+    corp_name: "networkguy.online"
+    devicesnlist: []
+
+
+  tasks:
+    - name: Get Network ID
+      include_tasks: task_get_networks.yml
+
+    - name: Get SW and AP devices
+      include_tasks: task_get_networkdevices.yml
+
+    - name: Get SW and AP SN
+      include_tasks: task_get_devicesn.yml
+
+    - name: Modify device mgmt interface DNS
+      include_tasks: task_modify_device_mgmt_interface_dns.yml
+
+
