@@ -1,0 +1,8 @@
+- name: Set management interface dns
+  cisco.meraki.devices_management_interface:
+    state: present
+    serial: "{{ item }}"
+    wan1:
+      staticDns:
+        - 88.88.88.88
+        - 99.99.99.99

@@ -5,8 +5,6 @@
   vars:
     org_id: "1563867"
     corp_name: "networkguy.online"
-    devicesnlist: []
-
 
   tasks:
     - name: Get Network ID
@@ -16,9 +14,10 @@
       include_tasks: task_get_networkdevices.yml
 
     - name: Get SW and AP SN
-      include_tasks: task_get_devicesn.yml
+      include_tasks: task_get_devicesnlist.yml
 
     - name: Modify device mgmt interface DNS
       include_tasks: task_modify_device_mgmt_interface_dns.yml
+      loop: "{{ devicesnlist }}"
 
 
