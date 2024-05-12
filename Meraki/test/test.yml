@@ -1,0 +1,23 @@
+---
+- name: Test
+  hosts: localhost
+  gather_facts: false
+  vars:
+    org_id: "1563867"
+    corp_name: "networkguy.online"
+
+  tasks:
+    - name: Get all networks
+      cisco.meraki.networks_info:
+        organizationId: "{{ org_id }}"
+        tags: [Office]
+        tagsFilterType: withAllTags
+      register: result
+
+    - name: Filter networks ID
+      set_fact:
+        Networkidlist: "{{ result.meraki_response | map(attribute='id') | list }}"
+
+    - name: Show Networkidlist
+      ansible.builtin.debug:
+        msg: "{{ Networkidlist }}"
