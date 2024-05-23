@@ -2,6 +2,11 @@
 - name: Update firewall l7 rules for sites with office task_get_networks.yaml
   hosts: localhost
   gather_facts: false
+  vars:
+    org_id: "1563867"
+    template_site_id: "L_699746792102694137"
+    site_tag: [Office]
+
   tasks:
     - name: Get Network ID
       include_tasks: task_get_networks.yaml

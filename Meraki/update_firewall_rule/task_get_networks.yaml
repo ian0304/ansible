@@ -1,7 +1,7 @@
 - name: Get all networks
   cisco.meraki.networks_info:
-    organizationId: 1563867
-    tags: [Office]
+    organizationId: "{{ org_id }}"
+    tags: "{{ site_tag }}"
     tagsFilterType: withAllTags
   register: office_networks_id
 
