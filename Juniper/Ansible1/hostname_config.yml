@@ -1,0 +1,17 @@
+---
+
+- name: "Test basic configuration"
+  hosts: R1
+
+  tasks:
+    - name: "Push some SNMP info"
+      junipernetworks.junos.junos_hostname:
+        config:
+          hostname: "R1-Ansible"
+
+      register: junos_conf
+
+    - name: "Print the config"
+      debug:
+        msg: "{{ junos_conf }}"
+        
