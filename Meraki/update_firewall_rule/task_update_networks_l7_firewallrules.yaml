@@ -27,7 +27,7 @@
     rules:
       "{{ merge_meraki_rules }}"
 
-- name: Get l7firewallrules {{ item }} 
+- name: Get l7firewallrules {{ item }}
   cisco.meraki.networks_appliance_firewall_l7_firewall_rules_info:
     networkId: "{{ item }}"
   register: updated_l7firewallrules
