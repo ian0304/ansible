@@ -10,10 +10,10 @@
     msg: "{{ office_networks_id }}"
 
 - name: Filter networks ID
-  set_fact:
-    Networkidlist: "{{ office_networks_id.meraki_response | map(attribute='id') | list }}"
+  ansible.builtin.set_fact:
+    network_id_list: "{{ office_networks_id.meraki_response | map(attribute='id') | list }}"
 
 - name: Show all networks
   ansible.builtin.debug:
-    var: Networkidlist
+    var: network_id_list
 

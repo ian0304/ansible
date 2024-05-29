@@ -3,3 +3,6 @@ venv
 .gitignore
 ansible-navigator.log
 Meraki/update_firewall_rule/output.txt
+.vscode/launch.json
+launch.json
+.vscode/
