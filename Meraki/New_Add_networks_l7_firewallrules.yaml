@@ -5,7 +5,7 @@
   tasks:
     - name: Get networks _appliance _firewall l7firewallrules
       cisco.meraki.networks_appliance_firewall_l7_firewall_rules_info:
-        networkId: L_699746792102694137
+        networkId: L_699746792102695035
       register: l7firewallrules
 
     - name: Set Template variable from JSON response

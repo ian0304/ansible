@@ -2,11 +2,14 @@
 - name: Get Inentory
   hosts: localhost
   gather_facts: false
+  vars:
+    org_id: "1575326"
+
   tasks:
     - name: Get Device
       cisco.meraki.devices_info:
         meraki_suppress_logging: true
-        organizationId: 549236
+        organizationId: "{{ org_id }}"
       register: result
 
     - name: Show result

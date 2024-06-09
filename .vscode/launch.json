@@ -3,5 +3,26 @@
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": []
+    "configurations": [
+        {
+            "name": "Ansibug: Attach to remote ansible-playbook Process",
+            "type": "ansible",
+            "request": "attach",
+            "address": "tcp://192.168.21.25:22"
+        },
+        {
+            "name": "Ansibug: Launch ansible-playbook Process",
+            "type": "ansible",
+            "request": "launch",
+            "playbook": "${command:PickAnsiblePlaybook}"
+        },
+        {
+            "name": "Ansibug: Launch Current File",
+            "type": "ansible",
+            "request": "launch",
+            "playbook": "${file}",
+            "cwd": "${cwd}"
+        }
+
+    ]
 }

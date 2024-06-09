@@ -5,7 +5,7 @@
   tasks:
     - name: Get networks _appliance _firewall l7firewallrules
       cisco.meraki.networks_appliance_firewall_l7_firewall_rules_info:
-        networkId: L_699746792102694137
+        networkId: L_699746792102695036
       register: l7firewallrules
 
     - name: Show l7firewallrules

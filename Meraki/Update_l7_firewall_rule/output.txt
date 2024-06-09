@@ -1,0 +1,322 @@
+
+PLAY [Update firewall l7 rules for sites with office task_get_networks.yaml] ***
+
+TASK [Get Network ID] **********************************************************
+included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_get_networks.yaml for localhost
+
+TASK [Get all networks] ********************************************************
+ok: [localhost]
+
+TASK [Show all networks] *******************************************************
+ok: [localhost] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "meraki_response": [
+            {
+                "enrollmentString": null,
+                "id": "L_699746792102695036",
+                "isBoundToConfigTemplate": false,
+                "name": "Site_A",
+                "notes": null,
+                "organizationId": "1575326",
+                "productTypes": [
+                    "appliance",
+                    "camera",
+                    "cellularGateway",
+                    "sensor",
+                    "switch",
+                    "wireless"
+                ],
+                "tags": [
+                    "Office"
+                ],
+                "timeZone": "America/Los_Angeles",
+                "url": "https://n243.meraki.com/Site_A-appliance/n/mvlsWbZd/manage/usage/list"
+            },
+            {
+                "enrollmentString": null,
+                "id": "L_699746792102695037",
+                "isBoundToConfigTemplate": false,
+                "name": "Site_B",
+                "notes": null,
+                "organizationId": "1575326",
+                "productTypes": [
+                    "appliance",
+                    "camera",
+                    "cellularGateway",
+                    "sensor",
+                    "switch",
+                    "wireless"
+                ],
+                "tags": [
+                    "Office"
+                ],
+                "timeZone": "America/Los_Angeles",
+                "url": "https://n243.meraki.com/Site_B-appliance/n/amECjcZd/manage/usage/list"
+            },
+            {
+                "enrollmentString": null,
+                "id": "L_699746792102695038",
+                "isBoundToConfigTemplate": false,
+                "name": "Site_C",
+                "notes": null,
+                "organizationId": "1575326",
+                "productTypes": [
+                    "appliance",
+                    "camera",
+                    "cellularGateway",
+                    "sensor",
+                    "switch",
+                    "wireless"
+                ],
+                "tags": [
+                    "Office"
+                ],
+                "timeZone": "America/Los_Angeles",
+                "url": "https://n243.meraki.com/Site_C-appliance/n/26eovbZd/manage/usage/list"
+            },
+            {
+                "enrollmentString": null,
+                "id": "L_699746792102695039",
+                "isBoundToConfigTemplate": false,
+                "name": "Site_D",
+                "notes": null,
+                "organizationId": "1575326",
+                "productTypes": [
+                    "appliance",
+                    "camera",
+                    "cellularGateway",
+                    "sensor",
+                    "switch",
+                    "wireless"
+                ],
+                "tags": [
+                    "Office"
+                ],
+                "timeZone": "America/Los_Angeles",
+                "url": "https://n243.meraki.com/Site_D-appliance/n/llvEHdZd/manage/usage/list"
+            }
+        ],
+        "result": ""
+    }
+}
+
+TASK [Filter networks ID] ******************************************************
+ok: [localhost]
+
+TASK [Show all networks] *******************************************************
+ok: [localhost] => {
+    "network_id_list": [
+        "L_699746792102695036",
+        "L_699746792102695037",
+        "L_699746792102695038",
+        "L_699746792102695039"
+    ]
+}
+
+TASK [Update l7 Firewall Rules] ************************************************
+included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_update_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695036)
+included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_update_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695037)
+included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_update_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695038)
+included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_update_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695039)
+
+TASK [Get networks appliance firewall l7firewallrules] *************************
+ok: [localhost]
+
+TASK [Set Template variable from JSON response] ********************************
+ok: [localhost]
+
+TASK [Check l7firewallrules L_699746792102695036] ******************************
+ok: [localhost]
+
+TASK [Set variable from JSON response L_699746792102695036] ********************
+ok: [localhost]
+
+TASK [Merge variable from JSON response] ***************************************
+ok: [localhost]
+
+TASK [Update l7firewallrules L_699746792102695036] *****************************
+changed: [localhost]
+
+TASK [Get l7firewallrules L_699746792102695036] ********************************
+ok: [localhost]
+
+TASK [Show l7firewallrules L_699746792102695036] *******************************
+ok: [localhost] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "meraki_response": {
+            "rules": [
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "1.1.1.1/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "2.2.2.2/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "3.3.3.3/32"
+                }
+            ]
+        },
+        "result": ""
+    }
+}
+
+TASK [Get networks appliance firewall l7firewallrules] *************************
+ok: [localhost]
+
+TASK [Set Template variable from JSON response] ********************************
+ok: [localhost]
+
+TASK [Check l7firewallrules L_699746792102695037] ******************************
+ok: [localhost]
+
+TASK [Set variable from JSON response L_699746792102695037] ********************
+ok: [localhost]
+
+TASK [Merge variable from JSON response] ***************************************
+ok: [localhost]
+
+TASK [Update l7firewallrules L_699746792102695037] *****************************
+changed: [localhost]
+
+TASK [Get l7firewallrules L_699746792102695037] ********************************
+ok: [localhost]
+
+TASK [Show l7firewallrules L_699746792102695037] *******************************
+ok: [localhost] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "meraki_response": {
+            "rules": [
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "1.1.1.1/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "2.2.2.2/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "3.3.3.3/32"
+                }
+            ]
+        },
+        "result": ""
+    }
+}
+
+TASK [Get networks appliance firewall l7firewallrules] *************************
+ok: [localhost]
+
+TASK [Set Template variable from JSON response] ********************************
+ok: [localhost]
+
+TASK [Check l7firewallrules L_699746792102695038] ******************************
+ok: [localhost]
+
+TASK [Set variable from JSON response L_699746792102695038] ********************
+ok: [localhost]
+
+TASK [Merge variable from JSON response] ***************************************
+ok: [localhost]
+
+TASK [Update l7firewallrules L_699746792102695038] *****************************
+changed: [localhost]
+
+TASK [Get l7firewallrules L_699746792102695038] ********************************
+ok: [localhost]
+
+TASK [Show l7firewallrules L_699746792102695038] *******************************
+ok: [localhost] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "meraki_response": {
+            "rules": [
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "1.1.1.1/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "2.2.2.2/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "3.3.3.3/32"
+                }
+            ]
+        },
+        "result": ""
+    }
+}
+
+TASK [Get networks appliance firewall l7firewallrules] *************************
+ok: [localhost]
+
+TASK [Set Template variable from JSON response] ********************************
+ok: [localhost]
+
+TASK [Check l7firewallrules L_699746792102695039] ******************************
+ok: [localhost]
+
+TASK [Set variable from JSON response L_699746792102695039] ********************
+ok: [localhost]
+
+TASK [Merge variable from JSON response] ***************************************
+ok: [localhost]
+
+TASK [Update l7firewallrules L_699746792102695039] *****************************
+changed: [localhost]
+
+TASK [Get l7firewallrules L_699746792102695039] ********************************
+ok: [localhost]
+
+TASK [Show l7firewallrules L_699746792102695039] *******************************
+ok: [localhost] => {
+    "msg": {
+        "changed": false,
+        "failed": false,
+        "meraki_response": {
+            "rules": [
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "1.1.1.1/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "2.2.2.2/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "3.3.3.3/32"
+                }
+            ]
+        },
+        "result": ""
+    }
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=41   changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
