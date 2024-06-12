@@ -2,7 +2,7 @@
 PLAY [Update firewall l7 rules for sites with office task_get_networks.yaml] ***
 
 TASK [Get Network ID] **********************************************************
-included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_get_networks.yaml for localhost
+included: /home/ian/github_folder/ansible/Meraki/Add_l7_firewall_rule/task_get_networks.yaml for localhost
 
 TASK [Get all networks] ********************************************************
 ok: [localhost]
@@ -116,10 +116,10 @@ ok: [localhost] => {
 }
 
 TASK [Update l7 Firewall Rules] ************************************************
-included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_update_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695036)
-included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_update_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695037)
-included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_update_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695038)
-included: /home/ian/github_folder/ansible/Meraki/update_firewall_rule/task_update_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695039)
+included: /home/ian/github_folder/ansible/Meraki/Add_l7_firewall_rule/task_add_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695036)
+included: /home/ian/github_folder/ansible/Meraki/Add_l7_firewall_rule/task_add_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695037)
+included: /home/ian/github_folder/ansible/Meraki/Add_l7_firewall_rule/task_add_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695038)
+included: /home/ian/github_folder/ansible/Meraki/Add_l7_firewall_rule/task_add_networks_l7_firewallrules.yaml for localhost => (item=L_699746792102695039)
 
 TASK [Get networks appliance firewall l7firewallrules] *************************
 ok: [localhost]
@@ -136,7 +136,7 @@ ok: [localhost]
 TASK [Merge variable from JSON response] ***************************************
 ok: [localhost]
 
-TASK [Update l7firewallrules L_699746792102695036] *****************************
+TASK [Add l7firewallrules L_699746792102695036] ********************************
 changed: [localhost]
 
 TASK [Get l7firewallrules L_699746792102695036] ********************************
@@ -163,6 +163,47 @@ ok: [localhost] => {
                     "policy": "deny",
                     "type": "ipRange",
                     "value": "3.3.3.3/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "4.4.4.4/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "5.5.5.5/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "6.6.6.6/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "7.7.7.7/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "8.8.8.8/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "applicationCategory",
+                    "value": {
+                        "id": "meraki:layer7/category/6",
+                        "name": "Gaming"
+                    }
+                },
+                {
+                    "policy": "deny",
+                    "type": "applicationCategory",
+                    "value": {
+                        "id": "meraki:layer7/category/22",
+                        "name": "Health care"
+                    }
                 }
             ]
         },
@@ -185,7 +226,7 @@ ok: [localhost]
 TASK [Merge variable from JSON response] ***************************************
 ok: [localhost]
 
-TASK [Update l7firewallrules L_699746792102695037] *****************************
+TASK [Add l7firewallrules L_699746792102695037] ********************************
 changed: [localhost]
 
 TASK [Get l7firewallrules L_699746792102695037] ********************************
@@ -212,6 +253,31 @@ ok: [localhost] => {
                     "policy": "deny",
                     "type": "ipRange",
                     "value": "3.3.3.3/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "4.4.4.4/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "5.5.5.5/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "6.6.6.6/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "7.7.7.7/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "8.8.8.8/32"
                 }
             ]
         },
@@ -234,7 +300,7 @@ ok: [localhost]
 TASK [Merge variable from JSON response] ***************************************
 ok: [localhost]
 
-TASK [Update l7firewallrules L_699746792102695038] *****************************
+TASK [Add l7firewallrules L_699746792102695038] ********************************
 changed: [localhost]
 
 TASK [Get l7firewallrules L_699746792102695038] ********************************
@@ -261,6 +327,31 @@ ok: [localhost] => {
                     "policy": "deny",
                     "type": "ipRange",
                     "value": "3.3.3.3/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "4.4.4.4/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "5.5.5.5/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "6.6.6.6/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "7.7.7.7/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "8.8.8.8/32"
                 }
             ]
         },
@@ -283,7 +374,7 @@ ok: [localhost]
 TASK [Merge variable from JSON response] ***************************************
 ok: [localhost]
 
-TASK [Update l7firewallrules L_699746792102695039] *****************************
+TASK [Add l7firewallrules L_699746792102695039] ********************************
 changed: [localhost]
 
 TASK [Get l7firewallrules L_699746792102695039] ********************************
@@ -310,6 +401,31 @@ ok: [localhost] => {
                     "policy": "deny",
                     "type": "ipRange",
                     "value": "3.3.3.3/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "4.4.4.4/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "5.5.5.5/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "6.6.6.6/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "7.7.7.7/32"
+                },
+                {
+                    "policy": "deny",
+                    "type": "ipRange",
+                    "value": "8.8.8.8/32"
                 }
             ]
         },

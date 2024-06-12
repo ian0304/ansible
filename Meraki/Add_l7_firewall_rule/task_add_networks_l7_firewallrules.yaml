@@ -1,3 +1,16 @@
+- name: Get Networks by ID
+  cisco.meraki.networks_info:
+    networkId: "{{ item }}"
+  register: network_info
+
+- name: Filter networks ID {{ item }}
+  ansible.builtin.set_fact:
+    network_name: "{{ network_info.meraki_response.name }}"
+
+- name: Show Network Name
+  ansible.builtin.debug:
+    msg: "{{ network_name }}"
+
 - name: Get networks appliance firewall l7firewallrules
   cisco.meraki.networks_appliance_firewall_l7_firewall_rules_info:
     networkId: "{{ template_site_id }}"
@@ -7,12 +20,12 @@
   ansible.builtin.set_fact:
     template_meraki_rules: "{{ l7firewallrules.meraki_response.rules }}"
 
-- name: Check l7firewallrules {{ item }}
+- name: Check l7firewallrules {{ network_name }}
   cisco.meraki.networks_appliance_firewall_l7_firewall_rules_info:
     networkId: "{{ item }}"
   register: office_l7firewallrules
 
-- name: Set variable from JSON response {{ item }}
+- name: Set variable from JSON response {{ network_name }}
   ansible.builtin.set_fact:
     office_meraki_rules: "{{ office_l7firewallrules.meraki_response.rules }}"
 
@@ -20,18 +33,18 @@
   ansible.builtin.set_fact:
     merge_meraki_rules: "{{ (template_meraki_rules + office_meraki_rules) | unique }}"
 
-- name: Add l7firewallrules {{ item }}
+- name: Add l7firewallrules {{ network_name }}
   cisco.meraki.networks_appliance_firewall_l7_firewall_rules:
     networkId: "{{ item }}"
     state: present
     rules:
       "{{ merge_meraki_rules }}"
 
-- name: Get l7firewallrules {{ item }}
+- name: Get l7firewallrules {{ network_name }}
   cisco.meraki.networks_appliance_firewall_l7_firewall_rules_info:
     networkId: "{{ item }}"
   register: updated_l7firewallrules
 
-- name: Show l7firewallrules {{ item }}
+- name: Show l7firewallrules {{ network_name }}
   ansible.builtin.debug:
     msg: "{{ updated_l7firewallrules }}"

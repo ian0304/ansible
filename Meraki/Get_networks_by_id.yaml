@@ -1,0 +1,17 @@
+---
+- name: Get Networks by ID
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Get Networks by ID
+      cisco.meraki.networks_info:
+        networkId: "L_699746792102695035"
+      register: network_info
+
+    - name: Filter networks ID
+      ansible.builtin.set_fact:
+        network_name: "{{ network_info.meraki_response.name }}"
+
+    - name: Show result
+      ansible.builtin.debug:
+        msg: "{{ network_name }}"
