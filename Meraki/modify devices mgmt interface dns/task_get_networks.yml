@@ -10,5 +10,5 @@
     msg: "{{ office_networks_id }}"
 
 - name: Filter networks ID
-  set_fact:
+  ansible.builtin.set_fact:
     Networkidlist: "{{ office_networks_id.meraki_response | map(attribute='id') | list }}"

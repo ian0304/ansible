@@ -8,16 +8,16 @@
 
   tasks:
     - name: Get Network ID
-      include_tasks: task_get_networks.yml
+      ansible.builtin.include_tasks: task_get_networks.yml
 
     - name: Get SW and AP devices
-      include_tasks: task_get_networkdevices.yml
+      ansible.builtin.include_tasks: task_get_networkdevices.yml
 
     - name: Get SW and AP SN
-      include_tasks: task_get_devicesnlist.yml
+      ansible.builtin.include_tasks: task_get_devicesnlist.yml
 
     - name: Modify device mgmt interface DNS
-      include_tasks: task_modify_device_mgmt_interface_dns.yml
+      ansible.builtin.include_tasks: task_modify_device_mgmt_interface_dns.yml
       loop: "{{ devicesnlist }}"
 
 
