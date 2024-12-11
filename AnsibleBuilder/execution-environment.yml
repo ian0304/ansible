@@ -1,0 +1,23 @@
+---
+version: 3
+
+images:
+  base_image:
+    name: quay.io/centos/centos:stream10
+
+dependencies:
+  ansible_core:
+    package_pip: ansible-core==2.15.13
+  ansible_runner:
+    package_pip: ansible-runner
+  galaxy: requirements.yml
+  system:
+    - gcc
+    - python3-devel
+    - libffi-devel
+    - openssl-devel
+    - make
+
+additional_build_steps:
+  prepend_final: |
+    RUN mkdir -p /etc/ansible && echo "[defaults]\ncallback_whitelist = json" > /etc/ansible/ansible.cfg
