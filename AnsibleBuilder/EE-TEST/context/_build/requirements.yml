@@ -1,0 +1,3 @@
+collections:
+- name: cisco.meraki
+  version: 2.20.9
